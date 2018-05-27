@@ -17,8 +17,8 @@ public class EventoService {
     @Autowired
     private EventoRepository eventoRepository;
 
-    public Evento save(@Validated Evento order) {
-        return eventoRepository.save(order);
+    public Evento save(@Validated Evento evento) {
+        return eventoRepository.save(evento);
     }
 
     public Evento findById(Integer id){

@@ -1,0 +1,2 @@
+export const LIBERA_ACESSO = 'LIBERA_ACESSO';
+export const PEGA_EVENTO = 'PEGA_EVENTO';

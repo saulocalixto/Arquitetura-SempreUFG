@@ -7,6 +7,7 @@ package com.github.saulocalixto.sempreUFGeventoMicroService.Controller;
 
 import com.github.saulocalixto.sempreUFGeventoMicroService.Modelo.Evento;
 import com.github.saulocalixto.sempreUFGeventoMicroService.Service.EventoService;
+import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
