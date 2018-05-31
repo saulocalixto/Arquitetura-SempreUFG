@@ -9,6 +9,9 @@ O SempreUFG é um software que tem a proposta de facilitar o acesso aos dados ac
 ## Professor Orientador
 * Valdemar Neto
 
+##Descrição Arquitetural
+
+A arquitetura aqui proposta é baseada em micro serviços, além de ser divida em camadas: Client, Server e Data. Sendo dividido em camadas acabamos atingindo uma boa modularidade do sistema, ajudando na manutenibilidade além de facilitar na divisão de responsabilidades. A camada server é composta de micro serviços que são independentes e se comunicam com o client através de RESTAPI.
 
 ## Licença
 
