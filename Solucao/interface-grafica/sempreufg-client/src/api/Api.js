@@ -18,8 +18,7 @@ export const getAllCategories = () =>
   fetch(`http://localhost:9093/api/evento/${id}`, {
     method: 'GET',
     crossDomain: true,
-    headers: { 'Authorization': `'${token.token_type} ${token.access_token}'`,
+    headers: {  'Authorization': `'${token.token_type} ${token.access_token}'`, 
                 'Content-Type': 'application/json',
-                'Accept': 'application/json',
-                "X-API-KEY": "__KEY__", "Access-Control-Allow-Origin": "true" },
+                'Accept': 'application/json' },
   }).then(res => res.json())

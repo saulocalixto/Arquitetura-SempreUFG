@@ -1,10 +1,8 @@
 import React from 'react'
-import { Navbar, MenuItem, Nav, NavDropdown } from 'react-bootstrap';
+import { Navbar } from 'react-bootstrap';
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import sortBy from "sort-by";
 import { withRouter } from "react-router-dom";
-import { LinkContainer } from 'react-router-bootstrap';
 
 const Menu = (props) => {
   return (

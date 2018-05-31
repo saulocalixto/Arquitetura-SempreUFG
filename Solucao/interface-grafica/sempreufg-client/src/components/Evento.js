@@ -1,15 +1,6 @@
 import React, { Component } from "react";
 import * as Map from "./Maps.js";
 import { connect } from "react-redux";
-import { 
-    Button,
-    Panel,
-    Form,
-    FormGroup,
-    Col,
-    ControlLabel,
-    FormControl,
-    Checkbox } from "react-bootstrap";
 
 class Evento extends Component {
   componentDidMount = () => {

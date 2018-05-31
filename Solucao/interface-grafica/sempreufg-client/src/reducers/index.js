@@ -17,7 +17,7 @@ function api(state = initialState, action) {
         token,
         logado
       }
-    };
+    }
     case Type.PEGA_EVENTO: {
       const evento = action.evento;
       console.log(evento);
