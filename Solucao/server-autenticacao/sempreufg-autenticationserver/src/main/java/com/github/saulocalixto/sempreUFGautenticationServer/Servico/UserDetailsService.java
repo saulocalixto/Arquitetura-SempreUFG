@@ -7,7 +7,6 @@ package com.github.saulocalixto.sempreUFGautenticationServer.Servico;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Optional;
 
 import javax.transaction.Transactional;
 
@@ -21,12 +20,16 @@ import org.springframework.stereotype.Service;
 import com.github.saulocalixto.sempreUFGautenticationServer.Modelo.Authority;
 import com.github.saulocalixto.sempreUFGautenticationServer.Modelo.User;
 import com.github.saulocalixto.sempreUFGautenticationServer.Repositorio.UserRepository;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.validation.annotation.Validated;
 
 @Service
 @Transactional
 public class UserDetailsService implements org.springframework.security.core.userdetails.UserDetailsService{
 	
 	UserRepository userRepository;
+        @Autowired
+        PasswordEncoder passwordEncoder;
 	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -39,6 +42,11 @@ public class UserDetailsService implements org.springframework.security.core.use
 	public void setUserRepository(UserRepository userRepository) {
 		this.userRepository = userRepository;
 	}
+        
+        public User save(@Validated User user) {
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        return this.userRepository.save(user);
+    }
 	
 	private Collection<GrantedAuthority> getGrantedAuthorities(User user){
     	Collection<GrantedAuthority> grantedAuthorities = new ArrayList<>();

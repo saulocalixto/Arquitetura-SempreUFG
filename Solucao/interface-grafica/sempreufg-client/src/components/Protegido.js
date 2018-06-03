@@ -5,9 +5,7 @@ import { connect } from "react-redux";
 const Protegido = ({ component: Component, ...rest }) => (
   <div>
   {
-    rest.logado !== undefined
-    ?
-    (<Route
+<Route
       {...rest}
       render={props =>
         rest.logado ? (
@@ -21,8 +19,7 @@ const Protegido = ({ component: Component, ...rest }) => (
           />
         )
       }
-    />) :
-    <div>Carregando</div>
+    />
   }
   </div>
 );

@@ -34,6 +34,17 @@ public class Evento implements Serializable {
     @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="dd/MM/yyyy")
     private Date dataHoraSolicitacaoDivulgacao;
     
+    @NotEmpty(message = "Local obrigatório")
+    private String local;
+
+    public void setLocal(String local) {
+        this.local = local;
+    }
+
+    public String getLocal() {
+        return local;
+    }
+    
     public void setAssunto(String assunto) {
         this.assunto = assunto;
     }

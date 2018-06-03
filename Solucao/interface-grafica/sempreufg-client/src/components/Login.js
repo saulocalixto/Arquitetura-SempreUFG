@@ -1,16 +1,17 @@
 import React, { Component } from "react";
-import * as AppCss from "../style/PostsCss.js";
+import { containerLogin, loginErro } from "../style/PostsCss.js";
 import * as Map from "./Maps.js";
 import { connect } from "react-redux";
 import { withRouter } from 'react-router-dom'
 import {
-    Button,
     Form,
     FormGroup,
     Col,
     ControlLabel,
     FormControl,
-    Checkbox
+    Alert,
+    Panel,
+    Button
 } from "react-bootstrap";
 
 class Login extends Component {
@@ -20,14 +21,22 @@ class Login extends Component {
         const formulario = event.target;
         const usuario = formulario.usuarioID.value;
         const senha = formulario.senhaID.value;
-        this.props.history.push("/autenticado");
-        this.props.Login(usuario, senha, this.props.history);
+        this.props.Login(usuario, senha).then(resolve => {
+            this.props.pegaTodosEventos(this.props.token).then(resolve => {
+                this.props.history.push("/home");
+            })
+        })
     }
 
     render() {
         return (
-            <div>
-            <Form horizontal onSubmit={this.login}>
+            <div style={containerLogin}>
+                <Panel bsStyle="primary">
+                    <Panel.Heading>
+                        <Panel.Title componentClass="h3">Login</Panel.Title>
+                    </Panel.Heading>
+                    <Panel.Body>
+                    <Form horizontal onSubmit={this.login}>
                 <FormGroup controlId="usuarioID">
                     <Col componentClass={ControlLabel} sm={2}>
                         Usuário
@@ -48,20 +57,20 @@ class Login extends Component {
 
                 <FormGroup>
                     <Col smOffset={2} sm={10}>
-                        <Checkbox>Lembre-me</Checkbox>
-                    </Col>
-                </FormGroup>
-
-                <FormGroup>
-                    <Col smOffset={2} sm={10}>
                         <Button type="submit">Entrar</Button>
                     </Col>
                 </FormGroup>
             </Form>
-            {this.props.history.location.state !== undefined 
-                && this.props.history.location.state.from.pathname === '/autenticado' 
-                    ? <div style={AppCss.falhaLogin}>Usuário ou senha incorretos!</div>
-            : <div></div>}
+                        {this.props.token && this.props.token.error === 'invalid_grant'
+                            ?
+                            <Alert bsStyle="danger" style={loginErro}>
+                                <strong>Atenção!</strong> Usuário ou senha incorretos!
+                                </Alert>
+                            :
+                            <div></div>
+                        }
+                    </Panel.Body>
+                </Panel>
             </div>
         );
     }
@@ -72,7 +81,7 @@ const mapStateToProps = (store) => {
     const logado = store.api.logado
     return {
         token,
-        logado
+        logado,
     }
 }
 
