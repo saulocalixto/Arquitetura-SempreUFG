@@ -83,7 +83,7 @@ class FormularioCadastraEvento extends Component {
 
                             <FormGroup>
                                 <Col smOffset={2} sm={10}>
-                                    <Button type="submit">Entrar</Button>
+                                    <Button type="submit">Salvar</Button>
                                 </Col>
                             </FormGroup>
                         </Form>
