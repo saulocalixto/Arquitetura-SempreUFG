@@ -5,7 +5,9 @@ import Carrocel from './Carrocel.js'
 
 class HomeAluno extends Component {
   componentDidMount = () => {
-     this.props.pegaEvento(this.props.token, 1);
+    this.props.pegaTodosEventos(this.props.token);
+    this.props.pegaTodosDadosDoUsuario(this.props.token);
+     this.props.reseteEvento();
   };
 
   render() {

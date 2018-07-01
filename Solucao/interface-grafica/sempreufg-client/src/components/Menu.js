@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { withRouter } from "react-router-dom";
 import * as Map from "./Maps.js"
+import { LinkContainer } from 'react-router-bootstrap';
 
 
 const Menu = (props) => {
@@ -22,7 +23,7 @@ const Menu = (props) => {
 
           <Nav pullLeft>
             <NavItem eventKey={1}>
-            <Link className='evento' to='/cadastrarEvento'>
+            <Link className='evento' to='/evento'>
               <div style={{color:'#999999'}}>Eventos</div>
             </Link>
               </NavItem>
@@ -32,7 +33,7 @@ const Menu = (props) => {
           </Nav>
           <Nav pullRight>
             <NavDropdown eventKey={3} title="Aluno" id="basic-nav-dropdown">
-              <MenuItem eventKey={3.1}>Consultar Dados</MenuItem>
+            <LinkContainer className='usuario' to='/usuario'><MenuItem eventKey={3.1}>Consultar Dados</MenuItem></LinkContainer>
               <MenuItem eventKey={3.2}>Atualizar Dados</MenuItem>
               <MenuItem eventKey={3.3}>Emitir Relatório</MenuItem>
               <MenuItem divider />

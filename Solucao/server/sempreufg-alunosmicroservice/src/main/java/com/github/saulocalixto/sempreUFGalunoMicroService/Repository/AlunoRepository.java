@@ -9,4 +9,5 @@ import com.github.saulocalixto.sempreUFGalunoMicroService.Modelo.Aluno;
 import org.springframework.data.repository.CrudRepository;
 
 public interface AlunoRepository extends CrudRepository<Aluno, Integer> {
+
 }

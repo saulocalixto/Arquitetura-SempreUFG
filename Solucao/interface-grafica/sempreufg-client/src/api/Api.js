@@ -15,8 +15,23 @@
   }).then(res => res.json())
     .then(data => data)
 
+  export const deleteEvento = (token, id) =>
+  fetch(`http://localhost:9093/api/evento/${id}`, {
+    method: 'DELETE',
+    headers: {  'Authorization': `${token.token_type} ${token.access_token}`, 
+                'Content-Type': 'application/json' },
+  }).then(res => res.json())
+
   export const getAllEventos = (token) =>
   fetch(`http://localhost:9093/api/evento/`, {
+    method: 'GET',
+    headers: {  'Authorization': `${token.token_type} ${token.access_token}`, 
+                'Content-Type': 'application/json' },
+  }).then(res => res.json())
+    .then(data => data)
+
+  export const getAllDadosUsuario = (token) =>
+  fetch(`http://localhost:9095/api/aluno/`, {
     method: 'GET',
     headers: {  'Authorization': `${token.token_type} ${token.access_token}`, 
                 'Content-Type': 'application/json' },

@@ -4,11 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.github.saulocalixto</groupId>
-    <artifactId>sempreUFG-alunoMicroService</artifactId>
+    <artifactId>sempreUFG-consultarEgressoMicroService</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>sempreUFG-alunoMicroService</name>
+    <name>sempreUFG-consultarEgressoMicroService</name>
     <description>Microserviço de alunos</description>
 
     <parent>

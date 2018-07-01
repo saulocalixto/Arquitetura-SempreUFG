@@ -4,6 +4,11 @@ export const postagens = {
   margin: '0 auto'
 }
 
+export const titulo = {
+  fontSize: '20',
+  padding: '10'
+}
+
 export const falhaLogin = {
   textAlign: 'center',
   color: 'red'
@@ -15,7 +20,7 @@ export const carrocelCaption = {top:'auto', textAlign: 'left', color: 'black'}
 
 export const containerLogin = { margin: 'auto', width: '30%', padding: '10' }
 
-export const loginErro = { width: '65%', margin: 'auto', padding: '10' }
+export const loginErro = { width: '65%', margin: 'auto', padding: '10', textAlign:'center' }
 
 export const padding = (value) => {
   return {padding: value}

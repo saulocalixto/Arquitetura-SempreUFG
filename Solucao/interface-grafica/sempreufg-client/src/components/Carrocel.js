@@ -9,6 +9,13 @@ import {
 import imagemEvento from '../imagens/evento.png'
 
 class Carrocel extends Component {
+
+    pegaEvento = (idEvento) => {
+        this.props.pegaEvento(this.props.token, idEvento).then(resolve => {
+            this.props.history.push("/evento");
+        })
+    }
+
     render() {
         return (
             <Carousel style={carrocel}>
@@ -21,7 +28,7 @@ class Carrocel extends Component {
                     </Carousel.Caption>
                 </Carousel.Item>
                 {this.props.eventos.map(evento => (
-                    <Carousel.Item key={evento.id}>
+                    <Carousel.Item key={evento.id} onClick={() => this.pegaEvento(evento.id)}>
                         <img width={'1000'} height={'230'} alt="900x350" 
                             src={imagemEvento} />
                         <Carousel.Caption style={carrocelCaption}>
@@ -38,5 +45,5 @@ class Carrocel extends Component {
 }
 
 export default withRouter(
-    connect(Map.mapStateToProps)(Carrocel)
+    connect(Map.mapStateToProps, Map.mapDispatchToProps)(Carrocel)
 );

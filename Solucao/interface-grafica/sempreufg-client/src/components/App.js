@@ -7,6 +7,8 @@ import Login from './Login.js'
 import CadastrarEvento from './FormularioCadastraEvento'
 import Protegido from './Protegido.js'
 import HomeAluno from './HomeAluno.js'
+import DadosUsuario from './DadosUsuario.jsx'
+import ServidorForaDoAr from './ServidorForaDoAr.jsx'
 import { padding } from '../style/PostsCss'
 
 
@@ -26,7 +28,8 @@ class App extends Component {
                     )}
                   />
                   <Protegido path="/home" component={HomeAluno} />
-                  <Protegido path='/cadastrarEvento' component={CadastrarEvento} />
+                  <Protegido path='/evento' component={CadastrarEvento} />
+                  <Protegido path='/usuario' component={this.props.dados.length > 0 ? DadosUsuario : ServidorForaDoAr} />
                 </Switch>
           </div>
         </div>
@@ -42,8 +45,6 @@ class App extends Component {
   }
 }
 
-
-
 export default withRouter(
-  connect(Map.mapDispatchToProps)(App)
+  connect(Map.mapStateToProps, Map.mapDispatchToProps)(App)
 );

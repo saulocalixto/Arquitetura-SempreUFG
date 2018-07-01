@@ -27,6 +27,25 @@ export const pegaEvento = (evento) => {
   }
 };
 
+export const fetchDeletaEvento = (token, id) => dispatch => (
+  Api.deleteEvento(token, id).then(() => {
+    dispatch(deletaEvento(id))
+  }, erro => console.log(`Algo de errado não deu certo: ${erro}`))
+);
+
+export const deletaEvento = (id) => {
+  return {
+    type: Type.DELETE_EVENTO,
+    id
+  }
+};
+
+export const resetaEvento = () => {
+  return {
+    type: Type.RESETA_EVENTO
+  }
+};
+
 export const fetchCadastraEvento = (token, evento) => dispatch => (
   Api.cadastrarEvento(token, evento).then(() => {
     dispatch(cadastraEvento(evento))
@@ -50,5 +69,18 @@ export const pegaTodosEventos = (eventos) => {
   return {
     type: Type.PEGAR_TODOS_EVENTOS,
     eventos
+  }
+};
+
+export const fetchPegaTodosDados = (token) => dispatch => (
+  Api.getAllDadosUsuario(token).then((dadosUsuario) => {
+    dispatch(pegaTodosDados(dadosUsuario))
+  }, erro => console.log(`Algo de errado não deu certo: ${erro}`))
+);
+
+export const pegaTodosDados = (dadosUsuario) => {
+  return {
+    type: Type.PEGA_TODOS_DADOS,
+    dadosUsuario
   }
 };

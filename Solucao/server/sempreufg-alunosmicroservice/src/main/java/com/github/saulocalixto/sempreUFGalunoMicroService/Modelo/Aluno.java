@@ -30,6 +30,17 @@ public class Aluno implements Serializable {
     @NotEmpty(message = "Nome do egresso é obrigatório")
     private String nome;
     
+    @NotEmpty(message = "usuário do egresso é obrigatório")
+    private String usuario;
+
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+    
     @NotEmpty(message = "Nome da Mãe é obrigatório")
     private String nomeMae;
     
